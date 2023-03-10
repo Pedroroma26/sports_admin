@@ -122,12 +122,56 @@ puts 'Fake players better than Bernardo were created.'
 competition1 = Competition.create!(name: "Campeonato Nacional de Hóquei em Campo")
 puts "Competition created"
 
-game1 = Game.create!(competition: competition1, club_home: club1, club_away: club2, referee: user1, game_date: "09/03/2023")
-game2 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "09/03/2024")
-game3 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "09/03/2023")
-game4 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "07/03/2023")
-game5 = Game.create!(competition: competition1, club_home: club3, club_away: club1, referee: user1, game_date: "11/03/2023")
-puts "Games created"
+# # Define the clubs and referees
+# clubs = [club1, club2, club3, club4, club5, club6, club7]
+# referees = [user1, user3]
+
+# # Define the game times
+# game_days = ["03/03/2023", "04/03/2023", "05/03/2023", "10/03/2023", "11/03/2023", "12/03/2023", "17/03/2023", "18/03/2023", "19/03/2023"]
+# game_times = ["18:00", "19:00", "20:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"]
+
+# # Define the starting game number
+# game_id = 1
+
+# # Iterate through each club and generate the games
+# clubs.each_with_index do |home_club, i|
+#   # Generate games against all other clubs
+#   (i+1...clubs.length).each do |j|
+#     away_club = clubs[j]
+
+#     # Alternate between home and away games for each club
+#     if j % 2 == 0
+#       game_date = game_days[(i + (j / 2)) % game_days.length]
+#       game_time = game_times[(i + (j / 2)) % game_times.length]
+#       referee = referees[(i + (j / 2)) % referees.length]
+#     else
+#       game_date = game_days[(j + (i / 2)) % game_days.length]
+#       game_time = game_times[(j + (i / 2)) % game_times.length]
+#       referee = referees[(j + (i / 2)) % referees.length]
+#     end
+
+#     # Create the game record
+#     Game.create!(
+#       competition: competition1,
+#       club_home: home_club,
+#       club_away: away_club,
+#       referee: referee,
+#       game_date: "#{game_date} #{game_time}",
+#       # game_id: game_id += 1
+#     )
+
+#     # Increment the game number
+#     # game_number += 1
+#   end
+# end
+
+
+# game1 = Game.create!(competition: competition1, club_home: club1, club_away: club2, referee: user1, game_date: "09/03/2023")
+# game2 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "09/03/2024")
+# game3 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "09/03/2023")
+# game4 = Game.create!(competition: competition1, club_home: club3, club_away: club2, referee: user3, game_date: "07/03/2023")
+# game5 = Game.create!(competition: competition1, club_home: club3, club_away: club1, referee: user1, game_date: "11/03/2023")
+# puts "Games created"
 
 report1 = Report.create!(game: game1, referee_validation: true)
 puts "Report1 created"
